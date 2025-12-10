@@ -7,7 +7,7 @@ on:
 
 jobs:
   delete-branch:
-    if: github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'develop' && (startsWith(github.event.pull_request.head.ref, 'feat/') || startsWith(github.event.pull_request.head.ref, 'bugfix/') || startsWith(github.event.pull_request.head.ref, 'refac/'))
+    if: github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'develop' && (startsWith(github.event.pull_request.head.ref, 'feature/') || startsWith(github.event.pull_request.head.ref, 'bugfix/') || startsWith(github.event.pull_request.head.ref, 'refactor/'))
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -18,7 +18,7 @@ jobs:
         run: gh api -X DELETE repos/${{ github.repository }}/git/refs/heads/${{ github.event.pull_request.head.ref }} || echo "Branch already deleted or not found"
 
   sync-main-to-develop:
-    if: github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'main'
+    if: github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'main' && (startsWith(github.event.pull_request.head.ref, 'release/') || startsWith(github.event.pull_request.head.ref, 'hotfix/'))
     runs-on: ubuntu-latest
     permissions:
       contents: write
