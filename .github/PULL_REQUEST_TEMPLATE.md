@@ -1,6 +1,7 @@
 ## Types of PR
 
 - [ ] Chore
+- [ ] Release
 - [ ] New Feature
 - [ ] Bug Fixing
 - [ ] Refactor
@@ -14,7 +15,5 @@
 
 ## Checklist
 
-- [ ] README.md (optional)
-- [ ] wiki (optional)
-- [ ] manifest.json (extension)
-- [ ] SECURITY.md (extension)
+- [ ] A
+- [ ] B
