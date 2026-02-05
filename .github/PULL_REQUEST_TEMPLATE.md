@@ -14,7 +14,5 @@
 
 ## Checklist
 
-- [ ] README.md (optional)
-- [ ] wiki (optional)
-- [ ] manifest.json (extension)
-- [ ] SECURITY.md (extension)
+- [ ] A
+- [ ] B
