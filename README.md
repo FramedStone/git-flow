@@ -27,6 +27,7 @@ Linux - e.g. `sudo apt install github-cli` (based on your package manager)
 1. Run `git flow init` in your repository and complete the setup
 2. Run `gh auth login` and complete the auth
 3. Modify/Append [.zshrc](./.zshrc) tailored to your setup (optional)
+4. Setup [github token](https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/use-secrets), name it as `TOKEN`
 
 ---
 
