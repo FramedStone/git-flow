@@ -32,8 +32,7 @@ Linux - e.g. `sudo apt install github-cli` (based on your package manager)
 
 ### How to start using
 
-1. Run `git flow (branch) start (name_of_the_branch)`
-   1.5 Do `git checkout -b` for `refactor` branch (optional)
+1. Run `git flow (branch) start (name_of_the_branch)` / `git checkout -b (name_of_the_branch)` (optional for refactor branch)
 2. **DO NOT** complete with `git flow (branch) finish (name_of_the_branch)`, instead do `gh pr create --base (branch - follow git-flow convention)`
 3. Follow the `gh cli` to complete the PR process
 4. You should now see the branch getting _merged_ and _deleted_
