@@ -1,6 +1,7 @@
 ## Types of PR
 
 - [ ] Chore
+- [ ] Release
 - [ ] New Feature
 - [ ] Bug Fixing
 - [ ] Refactor
