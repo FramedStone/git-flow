@@ -32,7 +32,15 @@ function gflwpr() {
       gh pr create --base develop
       ;;
     release)
+      local branch=$(git branch --show-current)
+      local version_num=${branch#release/}
+      version_num=${version_num#v}
+      local version="v${version_num}"
+      local sha=$(git rev-parse HEAD)
       gh pr create --base main
+      local repo_info=$(gh repo view --json owner,repository -q '.owner.login + "/" + .repository')
+      gh api repos/$repo_info/git/refs -X POST -f ref=refs/tags/$version -f sha=$sha
+      echo "Created tag: $version"
       ;;
     hotfix)
       gh pr create --base main
