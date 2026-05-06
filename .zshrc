@@ -21,29 +21,29 @@ alias gflwbs="git flow bugfix start"
 
 # integrate with github cli to create pr
 function gflwpr() {
+  local current_branch=$(git branch --show-current)
   case "$1" in
     feature)
-      gh pr create --base develop
+      gh pr create --base develop && git branch -D "$current_branch"
       ;;
     bugfix)
-      gh pr create --base develop
+      gh pr create --base develop && git branch -D "$current_branch"
       ;;
     refactor)
-      gh pr create --base develop
+      gh pr create --base develop && git branch -D "$current_branch"
       ;;
     release)
-      local branch=$(git branch --show-current)
-      local version_num=${branch#release/}
+      local version_num=${current_branch#release/}
       version_num=${version_num#v}
       local version="v${version_num}"
       local sha=$(git rev-parse HEAD)
-      gh pr create --base main
+      gh pr create --base main && git branch -D "$current_branch"
       local repo_info=$(gh repo view --json owner,repository -q '.owner.login + "/" + .repository')
       gh api repos/$repo_info/git/refs -X POST -f ref=refs/tags/$version -f sha=$sha
       echo "Created tag: $version"
       ;;
     hotfix)
-      gh pr create --base main
+      gh pr create --base main && git branch -D "$current_branch"
       ;;
     *)
       echo "Usage: gflwpr {feature|release|refactor|hotfix|bugfix}"
